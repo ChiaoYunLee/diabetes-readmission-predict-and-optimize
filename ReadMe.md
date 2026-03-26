@@ -15,21 +15,34 @@ This project answers that question through a two-stage pipeline:
 
 ## Results at a Glance
 
+**Best predictive model:** HistGradientBoosting
+
+| Metric | Score |
+|---|---|
+| ROC AUC | 0.697 |
+| Log Loss | 0.624 |
+| Average Precision | 0.657 |
+
+**Optimization outcome** (budget = $1M)
+
+| Metric | Value |
+|---|---|
+| Encounters selected | 1,832 of 20,153 |
+| Projected net savings | ~$2.24M |
+| ROI | 2.24 |
+
+**What-if analysis**
+
 | Scenario | Budget | Encounters Treated | Net Savings | ROI |
 |---|---|---|---|---|
-| Baseline | $1M | 1,832 | ~$2.24M | 2.24 |
 | Doubled budget | $2M | 3,228 | ~$3.88M | 1.94 |
 | Reduced effectiveness (−5%) | $1M | 1,832 | ~$1.70M | 1.70 |
-
-> **Best model:** HistGradientBoosting — ROC AUC 0.697, Log Loss 0.624, Average Precision 0.657
 
 
 ## Project Structure
 
 ```
 Project/
-├── diabetic_data.csv       # Encounter-level data (UCI ML Repository, 130 U.S. hospitals, 1999–2008)
-├── IDs_mapping.csv         # Mappings for admission/discharge/source ID fields
 ├── requirements.txt        # Python dependencies
 └── PTO_diabetes.ipynb      # End-to-end notebook: preprocessing → modeling → optimization
 ```
@@ -88,6 +101,7 @@ Each patient contributes an expected net savings term. The model selects the sub
 ## Data
 
 - **Source:** [UCI ML Repository — Diabetes 130-US Hospitals (1999–2008)](https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+years+1999-2008)
+- **Setup:** The dataset is not included in this repository. Download `diabetic_data.csv` and `IDs_mapping.csv` from the link above and place both files in the project root before running the notebook.
 - **Size:** ~100,000 encounter records across 130 U.S. hospitals
 - **Target variable:** Binary readmission (0 = not readmitted, 1 = readmitted within or after 30 days)
 - **Key preprocessing steps:**
