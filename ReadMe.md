@@ -180,9 +180,9 @@ jupyter notebook PTO_diabetes.ipynb
 The notebook walks through all steps in order: data preparation → model training → optimization → scenario analysis → patient profile validation.
 
 
-## 7. Limitations & Caveats
+## 7. Limitations
 
-| | |
+| Limitation | Note |
 |---|---|
 | **Lab data was too sparse to use** | A1C, glucose, and weight were missing for too many patients to include reliably. The model leans more on administrative variables (visit counts, diagnoses, discharge type) as a result. |
 | **Costs are estimates, not actuals** | Readmission and intervention costs are based on published benchmarks, not real hospital billing data. Actual ROI will depend on a specific hospital's cost structure. |
